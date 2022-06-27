@@ -21,4 +21,17 @@ class AutoInventory extends PluginBase {
         $this->saveDefaultConfig();
         self::$instance = $this;
     }
+    
+    public function autoInventory(Player $player, Item|Block $item){
+        if($item instanceof Block){
+            $item->asItem();
+        }
+        if($player->getInventory()->canAddItem($item)){
+            $player->getInventory()->addItem($item);
+        }else{
+            if($this->getConfig()->get("full-inv-drop") == true){
+                $player->getWorld()->dropItem($player->getPosition()->asVector3(), $item);
+            }
+        }
+    }
 }

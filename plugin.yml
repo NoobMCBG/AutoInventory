@@ -1,0 +1,6 @@
+name: AutoInventory
+main: NoobMCBG\AutoInventory\AutoInventory
+api: 4.0.0
+version: 1.0.0
+author: NoobMCBG
+description: Items automatically go to your inventory

@@ -4,3 +4,8 @@ api: 4.0.0
 version: 1.0.0
 author: NoobMCBG
 description: Items automatically go to your inventory
+
+permissions:
+  autoinv.bypass:
+    description: Permission to have items automatically in the inventory
+    default: true

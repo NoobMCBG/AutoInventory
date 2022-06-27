@@ -1,0 +1,11 @@
+---
+full-inv:
+  drop: true # When you set it to "true" and when the player's bag is full, the item will drop to the ground
+  title:
+    mode: true # When you set it to "true" and when the player's inventory is full, they will send 1 Title
+    title: "Full Inventory" # Title send
+    subtitle: "Drop items from inventory for quick pick up" # Subtitle send
+    sounds:
+      - "random.click"
+      - "random.explode"
+...

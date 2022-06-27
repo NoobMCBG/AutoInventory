@@ -13,13 +13,13 @@ use pocketmine\event\entity\EntityExplodeEvent;
 
 class EventListener implements Listener {
     
-    private AutoInventory $plugin;
+    	private AutoInventory $plugin;
   
-    public function __construct(AutoInventory $plugin){
-        $this->plugin = $plugin;
-    }
+    	public function __construct(AutoInventory $plugin){
+        	$this->plugin = $plugin;
+    	}
     
-    /**
+    	/**
 	 * @param BlockBreakEvent $event
 	 */
 	public function onBreak(BlockBreakEvent $event) : void {
@@ -29,10 +29,10 @@ class EventListener implements Listener {
 		$event->setDrops([]);
 	}
     
-    /**
+	/**
 	 * @param EntityDeathEvent $event
 	 */
-    public function onDeath(EntityDeathEvent $event) : void {
+	public function onEntityDeath(EntityDeathEvent $event) : void {
 		$cause = $event->getEntity()->getLastDamageCause();
 		if($cause instanceof EntityDamageByEntityEvent){
 			$damager = $cause->getDamager();

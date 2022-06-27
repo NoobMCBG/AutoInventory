@@ -6,6 +6,8 @@ namespace NoobMCBG\AutoInventory;
 
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
+use pocketmine\item\Item;
+use pocketmine\block\Block;
 use NoobMCBG\AutoInventory\task\CheckUpdateTask;
 
 class AutoInventory extends PluginBase {

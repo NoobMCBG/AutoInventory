@@ -43,7 +43,7 @@ class AutoInventory extends PluginBase {
                 		$player->getWorld()->dropItem($player->getPosition()->asVector3(), $item);
             		}else{
                 		if($this->getConfig()->getAll()["full-inv"]["title"]["mode"] == true){
-                    			$player->sendTitle($this->getConfig()->getAll()["full-inv"]["title"]["format"]);
+                    			$player->sendTitle($this->getConfig()->getAll()["full-inv"]["title"]["title"], $this->getConfig()->getAll()["full-inv"]["title"]["subtitle"]);
                     			if(is_array($this->getConfig()->getAll()["full-inv"]["title"]["sounds"])){  
                         			$this->playArraySound($player, $this->getConfig()->getAll()["full-inv"]["title"]["sounds"]);
                     			}else{

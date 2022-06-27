@@ -60,5 +60,19 @@ class EventListener implements Listener {
 		}
 	}
 	
-	
+	/**
+	 * @param EntityDeathEvent $event
+	 */
+	public function onPlayerDeath(PlayerDeathEvent $event) : void {
+		$cause = $event->getEntity()->getLastDamageCause();
+		if($cause instanceof EntityDamageByEntityEvent){
+			$damager = $cause->getDamager();
+			if($damager instanceof Player){
+				foreach($event->getDrops() as $drop){
+					$this->plugin->autoInventory($damager, $drop);
+				}
+				$event->setDrops([]);
+			}
+		}
+	}
 }

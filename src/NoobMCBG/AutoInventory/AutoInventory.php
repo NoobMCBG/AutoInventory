@@ -24,6 +24,13 @@ class AutoInventory extends PluginBase {
         $this->checkUpdate();
         self::$instance = $this;
     }
+	
+    /** 
+     * @param bool $isRetry = false
+     */
+    public function checkUpdate(bool $isRetry = false): void {   
+	$this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this->getDescription()->getName(), $this->getDescription()->getVersion()));
+    }
     
     public function autoInventory(Player $player, Item|Block $item){
         if($item instanceof Block){

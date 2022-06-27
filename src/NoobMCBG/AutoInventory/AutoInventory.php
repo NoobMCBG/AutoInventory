@@ -70,7 +70,7 @@ class AutoInventory extends PluginBase {
     
         /**
          * @param Player $player
-         * @param array $soundName
+         * @param array $sound
          * @param float $volume = 0
          * @param float $pitch = 0
          */

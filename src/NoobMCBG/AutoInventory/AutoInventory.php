@@ -11,4 +11,14 @@ use NoobMCBG\AutoInventory\task\CheckUpdateTask;
 class AutoInventory extends PluginBase {
     
     public static $instance;
+    
+    public static function getInstance() : self {
+        return self::$instance;
+    }
+    
+    public function onEnable() : void {
+        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+        $this->saveDefaultConfig();
+        self::$instance = $this;
+    }
 }

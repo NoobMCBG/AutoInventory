@@ -7,7 +7,7 @@ namespace NoobMCBG\AutoInventory;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\item\Item;
-use pocketmine\block\Block;
+use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 use NoobMCBG\AutoInventory\task\CheckUpdateTask;
 
 class AutoInventory extends PluginBase {
@@ -32,10 +32,7 @@ class AutoInventory extends PluginBase {
 	    	$this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this->getDescription()->getName(), $this->getDescription()->getVersion()));
         }
     
-        public function autoInventory(Player $player, Item|Block $item){
-        	if($item instanceof Block){
-            		$item->asItem();
-        	}
+        public function autoInventory(Player $player, Item $item){
         	if($player->getInventory()->canAddItem($item)){
             		$player->getInventory()->addItem($item);
         	}else{

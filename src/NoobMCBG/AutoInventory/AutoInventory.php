@@ -29,7 +29,7 @@ class AutoInventory extends PluginBase {
      * @param bool $isRetry = false
      */
     public function checkUpdate(bool $isRetry = false): void {   
-	$this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this->getDescription()->getName(), $this->getDescription()->getVersion()));
+	    $this->getServer()->getAsyncPool()->submitTask(new CheckUpdateTask($this->getDescription()->getName(), $this->getDescription()->getVersion()));
     }
     
     public function autoInventory(Player $player, Item|Block $item){
@@ -61,14 +61,14 @@ class AutoInventory extends PluginBase {
      * @param float $pitch = 0
      */
     public function playSound(Player $player, string $soundName, float $volume = 0, float $pitch = 0) : void {
-	$packet = new PlaySoundPacket();
-	$packet->soundName = $soundName;
-	$packet->x = $player->getPosition()->getX();
-	$packet->y = $player->getPosition()->getY();
-	$packet->z = $player->getPosition()->getZ();
-	$packet->volume = $volume;
-	$packet->pitch = $pitch;
-	$player->getNetworkSession()->sendDataPacket($packet);
+	    $packet = new PlaySoundPacket();
+	    $packet->soundName = $soundName;
+	    $packet->x = $player->getPosition()->getX();
+	    $packet->y = $player->getPosition()->getY();
+	    $packet->z = $player->getPosition()->getZ();
+	    $packet->volume = $volume;
+	    $packet->pitch = $pitch;
+	    $player->getNetworkSession()->sendDataPacket($packet);
     }
     
     /**

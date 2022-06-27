@@ -60,7 +60,7 @@ class AutoInventory extends PluginBase {
          * @param float $volume = 0
          * @param float $pitch = 0
          */
-        public function playSound(Player $player, string $soundName, float $volume = 0, float $pitch = 0) : void {
+        private function playSound(Player $player, string $soundName, float $volume = 0, float $pitch = 0) : void {
 	    	$packet = new PlaySoundPacket();
 	    	$packet->soundName = $soundName;
 	    	$packet->x = $player->getPosition()->getX();
@@ -77,7 +77,7 @@ class AutoInventory extends PluginBase {
          * @param float $volume = 0
          * @param float $pitch = 0
          */
-        public function playArraySound(Player $player, array $sound, float $volume = 0, float $pitch = 0) : void {
+        private function playArraySound(Player $player, array $sound, float $volume = 0, float $pitch = 0) : void {
         	foreach($sound as $soundName){
             		$packet = new PlaySoundPacket();
             		$packet->soundName = $soundName;

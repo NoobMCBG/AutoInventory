@@ -14,6 +14,7 @@
 >- Items dropped from entities or players ✔️
 >- will be added to your inventory ✔️
 >- All the blocks you dig are automatically added to your inventory ✔️
+
 <img src="https://github.com/NoobMCBG/AutoInventory/blob/main/icon.png"/>
 
 <br>

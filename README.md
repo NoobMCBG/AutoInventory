@@ -9,13 +9,21 @@
 
 <br>
 
->- Items automatically go to your inventory ✔️
+>- Items automatically go to your inventory. Avoid letting other players take what you deserve ✔️
+>- All exploding blocks will be added to your inventory ✔️
+>- Items dropped from entities or players ✔️
+>- will be added to your inventory ✔️
+>- All the blocks you dig are automatically added to your inventory ✔️
 <img src="https://github.com/NoobMCBG/AutoInventory/blob/main/icon.png"/>
 
 <br>
 
 ## Features
->- Items automatically go to your inventory
+>- Items automatically go to your inventory. Avoid letting other players take what you deserve
+>- All exploding blocks will be added to your inventory
+>- Items dropped from entities or players
+>- will be added to your inventory
+>- All the blocks you dig are automatically added to your inventory
 
 <br>
   

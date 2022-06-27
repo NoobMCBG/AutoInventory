@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace NoobMCBG\AutoInventory;
+namespace NoobMCBG\AutoInventory\task;
 
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;

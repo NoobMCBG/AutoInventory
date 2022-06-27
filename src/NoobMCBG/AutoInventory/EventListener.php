@@ -26,10 +26,12 @@ class EventListener implements Listener {
 	 * @param BlockBreakEvent $event
 	 */
 	public function onBreak(BlockBreakEvent $event) : void {
-		foreach($event->getDrops() as $drop){
-			$this->plugin->autoInventory($event->getPlayer(), $drop);
+		if($event->getPlayer()->hasPermission("autoinv.bypass")){
+			foreach($event->getDrops() as $drop){
+				$this->plugin->autoInventory($event->getPlayer(), $drop);
+			}
+			$event->setDrops([]);
 		}
-		$event->setDrops([]);
 	}
     
 	/**
@@ -40,10 +42,12 @@ class EventListener implements Listener {
 		if($cause instanceof EntityDamageByEntityEvent){
 			$damager = $cause->getDamager();
 			if($damager instanceof Player){
-				foreach($event->getDrops() as $drop) {
-					$this->plugin->autoInventory($damager, $drop);
+				if($damager->hasPermission("autoinv.bypass")){
+					foreach($event->getDrops() as $drop) {
+						$this->plugin->autoInventory($damager, $drop);
+					}
+					$event->setDrops([]);
 				}
-				$event->setDrops([]);
 			}
 		}
 	}
@@ -55,10 +59,12 @@ class EventListener implements Listener {
 		$death = $event->getEntity();
 		foreach($death->getPosition()->getWorld()->getNearbyEntities($death->getBoundingBox()->expand(24, 24, 24)) as $entity){
 			if($entity instanceof Player){
-				foreach($event->getBlockList() as $key => $block){
-					foreach($block->getDrops(VanillaItems::AIR()) as $item){
-						$event->setYield(0);
-						$this->plugin->autoInventory($entity, $item);
+				if($entity->hasPermission("autoinv.bypass")){
+					foreach($event->getBlockList() as $key => $block){
+						foreach($block->getDrops(VanillaItems::AIR()) as $item){
+							$event->setYield(0);
+							$this->plugin->autoInventory($entity, $item);
+						}
 					}
 				}
 			}
@@ -66,17 +72,19 @@ class EventListener implements Listener {
 	}
 	
 	/**
-	 * @param EntityDeathEvent $event
+	 * @param PlayerDeathEvent $event
 	 */
 	public function onPlayerDeath(PlayerDeathEvent $event) : void {
 		$cause = $event->getEntity()->getLastDamageCause();
 		if($cause instanceof EntityDamageByEntityEvent){
 			$damager = $cause->getDamager();
 			if($damager instanceof Player){
-				foreach($event->getDrops() as $drop){
-					$this->plugin->autoInventory($damager, $drop);
+				if($damager->hasPermission("autoinv.bypass")){
+					foreach($event->getDrops() as $drop){
+						$this->plugin->autoInventory($damager, $drop);
+					}
+					$event->setDrops([]);
 				}
-				$event->setDrops([]);
 			}
 		}
 	}

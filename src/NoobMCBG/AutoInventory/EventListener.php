@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace NoobMCBG\AutoInventory;
 
 use pocketmine\player\Player;
-use pocketmine\item\VanillaItems;
 use pocketmine\block\VanillaBlocks;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerDeathEvent;
@@ -61,7 +60,7 @@ class EventListener implements Listener {
 			if($entity instanceof Player){
 				if($entity->hasPermission("autoinv.bypass")){
 					foreach($event->getBlockList() as $key => $block){
-						foreach($block->getDrops(VanillaItems::AIR()) as $item){
+						foreach($block->getDrops(VanillaBlocks::AIR()) as $item){
 							$event->setYield(0);
 							$this->plugin->autoInventory($entity, $item);
 						}
